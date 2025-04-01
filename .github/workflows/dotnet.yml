@@ -1,0 +1,50 @@
+name: Run Appium Tests on BrowserStack
+
+on:
+  push:
+    branches:
+      - main  # Change if your default branch is different (e.g., 'master')
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # You can use ubuntu-latest, or other operating systems depending on your requirement
+
+    steps:
+    # Step 1: Checkout the repository
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    # Step 2: Set up .NET (adjust the version based on your project)
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0'  # Adjust to match your .NET version
+
+    # Step 3: Set up Node.js (required for Appium)
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    # Step 4: Set up Java (required for Appium)
+    - name: Set up Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
+    # Step 5: Install project dependencies (if needed, e.g., NuGet for C# projects)
+    - name: Install dependencies
+      run: dotnet restore
+
+    # Step 6: Build the project
+    - name: Build project
+      run: dotnet build --no-restore
+
+    # Step 7: Run Appium Tests on BrowserStack
+      env:
+        BROWSERSTACK_USERNAME: ${{ secrets.vaishnavim_NnFb2f }}
+        BROWSERSTACK_ACCESS_KEY: ${{ secrets.gEkpSRqftqsipyyFTyB1 }}
+      
+    - name: Run Appium Tests
+      run: dotnet test  # This assumes your tests are set up in the .NET project and use NUnit
