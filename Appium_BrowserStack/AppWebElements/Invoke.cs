@@ -5,10 +5,10 @@ using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.Enums;
 
-namespace AppiumPractise.AppWebElements
+namespace Appium_BrowserStack.AppWebElements
 {
     [TestFixture]
-    public class AppInvoke
+    public class Invoke
     {
         public AndroidDriver driver;
 
@@ -46,8 +46,36 @@ namespace AppiumPractise.AppWebElements
         [Test]
         public void AppInvoketest()
         {
-            IWebElement view = driver.FindElement(By.XPath("//android.widget.TextView[@content-desc='Views']"));
-            view.Click();
+
+            //2 execution code(git actiosn reuslt)
+            //IWebElement view = driver.FindElement(By.XPath("//android.widget.TextView[@content-desc='Views']"));
+            //view.Click();
+
+            //3rd execution code 
+            //IWebElement view = driver.FindElement(By.XPath("//ndroid.widget.TextView[@content-desc='Views']"));
+            //view.Click();
+
+            //4th execution code 
+            try
+            {
+                IWebElement view = driver.FindElement(By.XPath("//ndroid.widget.TextView[@content-desc='Views']"));
+                view.Click();
+            }
+            catch (NoSuchElementException ex)
+            {
+                // Log the exception to ensure it is captured in the BrowserStack logs
+                Console.WriteLine("Element not found: " + ex.Message);
+                Assert.Fail("Test failed due to: " + ex.Message);  // Explicitly fail the test
+            }
+            catch (Exception ex)
+            {
+                // Catch any other exceptions
+                Console.WriteLine("Error: " + ex.Message);
+                Assert.Fail("Test failed due to: " + ex.Message);  // Explicitly fail the test
+            }
+
+
+
         }
     }
 }

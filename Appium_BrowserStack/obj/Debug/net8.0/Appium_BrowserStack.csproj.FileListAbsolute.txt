@@ -106,3 +106,4 @@ C:\Users\vaman\source\repos\Appium_BrowserStack\Appium_BrowserStack\obj\Debug\ne
 C:\Users\vaman\source\repos\Appium_BrowserStack\Appium_BrowserStack\obj\Debug\net8.0\Appium_BrowserStack.pdb
 C:\Users\vaman\source\repos\Appium_BrowserStack\Appium_BrowserStack\obj\Debug\net8.0\Appium_BrowserStack.genruntimeconfig.cache
 C:\Users\vaman\source\repos\Appium_BrowserStack\Appium_BrowserStack\obj\Debug\net8.0\ref\Appium_BrowserStack.dll
+C:\Users\vaman\source\repos\Appium_BrowserStack\Appium_BrowserStack\obj\Debug\net8.0\Appium_BrowserStack.sourcelink.json
