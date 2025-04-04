@@ -48,3 +48,4 @@ jobs:
       
     - name: Run Appium Tests
       run: dotnet test  # This assumes your tests are set up in the .NET project and use NUnit
+#ran simply
